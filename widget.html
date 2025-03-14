@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="loanoptionsWidget"></div>
+    <script>
+      (function () {
+        const params = new Proxy(new URLSearchParams(window.location.search), {
+          get: (searchParams, prop) => searchParams.get(prop),
+        });
+        if (params.partnerId) {
+          localStorage.setItem("externalPartnerId", params.partnerId);
+        } else {
+          // SET DEFAULT DRIVE IQ PARTNER(REQUIRED)
+          localStorage.setItem(
+            "externalPartnerId",
+            "c37b486c-1f25-4da6-a944-29ff4a206a7c"
+          );
+        }
+        // HOST URL
+        localStorage.setItem(
+          "sourceUrl",
+          "https://www.freedomcapitalfinance.com.au"
+        );
+        localStorage.setItem("source", "FFC");
+        localStorage.setItem("loanType", "CAR_LOAN");
+        localStorage.setItem("targetSystem", "SKYNET");
+      })();
+    </script>
+    <link
+      href="https://micro-widgets.s3.ap-southeast-2.amazonaws.com/prod/css/main.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://micro-widgets.s3.ap-southeast-2.amazonaws.com/prod/css/main.css.map"
+    />
+    <script src="https://micro-widgets.s3.ap-southeast-2.amazonaws.com/prod/js/main.js"></script>
+    <script src="https://micro-widgets.s3.ap-southeast-2.amazonaws.com/prod/js/main.js.map"></script>
+  </body>
+</html>
